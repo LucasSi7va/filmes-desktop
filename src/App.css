@@ -1,0 +1,224 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  scroll-behavior: none;
+  text-decoration: none;
+}
+
+/* Header e Navegação */
+header {
+  background-color: #333;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff6347;
+}
+
+/* Espaço para o conteúdo abaixo do header */
+.main-content {
+  padding-top: 80px; /* Altura do header para evitar sobreposição */
+}
+
+/* Barra de Pesquisa Centralizada */
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 1rem;
+}
+
+.search-bar form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 1rem;
+}
+
+.search-bar select,
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #ff6347;
+}
+
+/* Lista de Filmes */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card de Filme */
+.movie-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-card h3 {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  height: 60px; /* Altura fixa para títulos */
+  overflow: hidden;
+}
+
+/* Botão de Favorito */
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.favorite-button:hover {
+  background: rgba(255, 99, 71, 0.8); /* Cor de destaque ao passar o mouse */
+}
+
+.favorite-button svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+/* Página de Detalhes do Filme */
+.movie-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-detail h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.movie-detail p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.movie-detail .trailer iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Página de Favoritos */
+.favorites-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.favorites-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+  .search-bar form {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .search-bar select,
+  .search-bar input {
+    width: auto;
+    flex: 1;
+  }
+
+  .search-bar button {
+    align-self: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .search-bar {
+    margin: 3rem auto;
+  }
+
+  .movie-detail .trailer iframe {
+    height: 500px;
+  }
+}
